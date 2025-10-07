@@ -1,0 +1,29 @@
+===QUESTION===
+You are Prashant, a junior safety officer at the ABC textile factory. A mock fire drill was conducted last Wednesday to test emergency preparedness. Write a report on the drill, including staff response, gaps observed, and suggested improvements.
+
+===QUESTION===
+You are Rahul, a volunteer with a disaster response unit. After a recent earthquake, your team was deployed to a remote village for rescue operations. Write a report on the mission, describing rescue efforts, local cooperation, and key challenges.
+
+===QUESTION===
+You are Aditya Sharma, President of the 'Safe Commute Forum', a citizen-led initiative. The public bus service on Route 21B, which connects a major residential area to the city's IT park, has become extremely unreliable and overcrowded. Write a report to the General Manager of the City Transport Corporation, Mr. T.N. Rao. The report must highlight the issues of infrequent service, poor bus maintenance, safety concerns due to overcrowding during peak hours, and provide actionable recommendations such as increasing bus frequency and introducing real-time bus tracking.
+
+===QUESTION===
+You are Sameer Singh, the Administration Head at Zenith Corp. A workplace recycling program was recently implemented in your office. Write a report to the Chief Sustainability Officer, Ms. Priya Sharma, detailing the program's rollout, the level of employee participation, challenges faced, such as bin contamination, key waste reduction metrics achieved so far, and your concrete suggestions for enhancing compliance across the organization.
+
+===QUESTION===
+As a Field Correspondent for India Today, draft a report on a severe heatwave affecting the arid places in your locality, including the public health measures taken, hospital responses, and temporary closures of outdoor activities.
+
+===QUESTION===
+As a Technology Correspondent for Tech Bharat, draft a report on a major data breach at a leading Indian e-commerce platform, outlining the incident, the company's response, and the temporary suspension of online transactions.
+
+===QUESTION===
+You are Sneha Gupta, Event Head of the Literature Society. Prepare a report on the two-day Inter-College Literary Fest, highlighting debates, poetry recitations, guest speakers, and participation statistics.
+
+===QUESTION===
+You are Shalini Rao, Social Welfare Officer. Write a report on the successful distribution of winter clothing to homeless individuals in your city, detailing the planning, coordination, and response from beneficiaries.
+
+===QUESTION===
+You are Meera Joshi, Tourism Correspondent for Travel India. Draft a report on the successful hosting of a regional food and craft fair in your city, covering visitor turnout, popular stalls, and its economic impact.
+
+===QUESTION===
+You are Priya Verma, Volunteer Coordinator for Clean Shores Initiative. Draft a report on a recent beach cleaning drive, mentioning volunteer numbers, waste collected, and awareness activities conducted.
