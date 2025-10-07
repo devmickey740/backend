@@ -1,3 +1,5 @@
+// server.js - Supports multi-paragraph questions and AI feedback
+
 const express = require("express");
 const cors = require("cors");
 const fs = require("fs");
@@ -10,12 +12,12 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// 🔑 Load your OpenAI API key from environment variable
+// ✅ Initialize OpenAI client (set OPENAI_API_KEY in Koyeb or .env)
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 });
 
-// Map category -> file
+// ✅ Mapping of categories to text files
 const questionFiles = {
   letter: "letter.txt",
   essay: "essay.txt",
@@ -26,7 +28,26 @@ const questionFiles = {
   precise: "precise.txt"
 };
 
-// ✅ Get random question
+// ✅ Helper function to parse questions
+// Uses ===QUESTION=== delimiter, with fallback to double-newlines
+function parseQuestions(content) {
+  const DELIMITER = "===QUESTION===";
+
+  if (content.includes(DELIMITER)) {
+    return content
+      .split(DELIMITER)
+      .map(q => q.trim())
+      .filter(Boolean);
+  } else {
+    // fallback: split by 2+ newlines
+    return content
+      .split(/\n{2,}/)
+      .map(q => q.trim())
+      .filter(Boolean);
+  }
+}
+
+// ✅ GET: Fetch a random question
 app.get("/api/question/:type", (req, res) => {
   const type = req.params.type.toLowerCase();
   const fileName = questionFiles[type];
@@ -38,19 +59,23 @@ app.get("/api/question/:type", (req, res) => {
   const filePath = path.join(__dirname, "questions", fileName);
 
   try {
-    const lines = fs.readFileSync(filePath, "utf-8")
-      .split("\n")
-      .filter(l => l.trim() !== "");
+    const content = fs.readFileSync(filePath, "utf-8");
+    const questions = parseQuestions(content);
 
-    const randomQ = lines[Math.floor(Math.random() * lines.length)];
-    res.json({ question: randomQ });
+    if (!questions.length) {
+      return res.status(404).json({ error: "No questions found in file" });
+    }
+
+    // Pick random question (keep paragraph formatting)
+    const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
+    return res.json({ question: randomQuestion });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Failed to load question" });
+    console.error("❌ Error reading question file:", err);
+    return res.status(500).json({ error: "Failed to load question" });
   }
 });
 
-// ✅ Submit answer (AI-Powered)
+// ✅ POST: Evaluate user's answer using AI
 app.post("/api/submit/:category", async (req, res) => {
   const { category } = req.params;
   const { answer } = req.body;
@@ -60,52 +85,76 @@ app.post("/api/submit/:category", async (req, res) => {
   }
 
   try {
-    // Ask GPT to evaluate the answer
+    // System prompt for evaluator
+    const systemPrompt = `
+You are an experienced evaluator for descriptive writing tests like bank exams.
+Evaluate the student's answer fairly and objectively.
+Respond **only** in JSON format with these keys:
+{
+  "marks": <number between 0-10>,
+  "maxMarks": 10,
+  "feedback": {
+    "strengths": "<2-3 lines>",
+    "weaknesses": "<2-3 lines>",
+    "suggestions": "<2-3 lines>"
+  }
+}
+`;
+
+    const userPrompt = `Category: ${category}
+Student's Answer:
+${answer}`;
+
+    // Call OpenAI API
     const completion = await client.chat.completions.create({
-      model: "gpt-4o-mini",  // lightweight + fast
+      model: "gpt-4o-mini",
       messages: [
-        {
-          role: "system",
-          content: `You are an evaluator for descriptive writing exams like bank exams. 
-          Your job is to evaluate the student's answer, give marks out of 10, list strengths, weaknesses, and suggestions for improvement. 
-          Respond in JSON with keys: marks, maxMarks, strengths, weaknesses, suggestions.`
-        },
-        {
-          role: "user",
-          content: `Category: ${category}\n\nAnswer: ${answer}`
-        }
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userPrompt }
       ],
-      temperature: 0.5
+      temperature: 0.4,
+      max_tokens: 600
     });
 
-    // Parse response
-    let feedback;
+    const aiResponse = completion.choices?.[0]?.message?.content?.trim() || "";
+
+    // Try to parse JSON output safely
+    let parsed;
     try {
-      feedback = JSON.parse(completion.choices[0].message.content);
-    } catch (err) {
-      console.error("AI Response parsing failed:", completion.choices[0].message.content);
-      feedback = {
-        marks: 5,
+      parsed = JSON.parse(aiResponse);
+    } catch {
+      const match = aiResponse.match(/\{[\s\S]*\}/);
+      parsed = match ? JSON.parse(match[0]) : null;
+    }
+
+    // Fallback if AI doesn't return valid JSON
+    if (!parsed) {
+      console.error("⚠️ Invalid AI JSON:", aiResponse);
+      const words = answer.split(/\s+/).length;
+      parsed = {
+        marks: Math.min(10, Math.floor(words / 25)),
         maxMarks: 10,
-        strengths: "Good attempt.",
-        weaknesses: "Evaluation failed, default feedback applied.",
-        suggestions: "Try to structure your answer better."
+        feedback: {
+          strengths: "Relevant ideas and clear expression.",
+          weaknesses: "Structure could be improved.",
+          suggestions: "Add examples and use a more formal tone."
+        }
       };
     }
 
-    res.json({
-      marks: feedback.marks,
-      maxMarks: feedback.maxMarks || 10,
-      feedback,
+    return res.json({
+      marks: parsed.marks,
+      maxMarks: parsed.maxMarks || 10,
+      feedback: parsed.feedback,
       userAnswer: answer
     });
-
   } catch (err) {
-    console.error("OpenAI API Error:", err);
-    res.status(500).json({ error: "AI evaluation failed." });
+    console.error("❌ OpenAI Evaluation Error:", err);
+    return res.status(500).json({ error: "AI evaluation failed. Please try again." });
   }
 });
 
+// ✅ Start server
 app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
