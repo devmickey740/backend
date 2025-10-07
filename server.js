@@ -3,7 +3,6 @@ import cors from "cors";
 import fs from "fs";
 import path from "path";
 import OpenAI from "openai";
-import stringSimilarity from "string-similarity"; // ✅ NEW
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -27,7 +26,7 @@ const questionFiles = {
   precise: "precise.txt"
 };
 
-// ✅ Helper to parse questions
+// ✅ Helper: parse questions
 function parseQuestions(content) {
   const DELIMITER = "===QUESTION===";
   if (content.includes(DELIMITER)) {
@@ -37,7 +36,15 @@ function parseQuestions(content) {
   }
 }
 
-// ✅ Fetch question route
+// ✅ Helper: simple plagiarism similarity (0–1)
+function textSimilarity(a, b) {
+  const wordsA = a.toLowerCase().split(/\s+/);
+  const wordsB = b.toLowerCase().split(/\s+/);
+  const common = wordsA.filter(word => wordsB.includes(word)).length;
+  return common / Math.max(wordsA.length, wordsB.length);
+}
+
+// ✅ Get random question
 app.get("/api/question/:type", (req, res) => {
   const type = req.params.type.toLowerCase();
   const fileName = questionFiles[type];
@@ -49,6 +56,7 @@ app.get("/api/question/:type", (req, res) => {
     const content = fs.readFileSync(filePath, "utf-8");
     const questions = parseQuestions(content);
     if (!questions.length) return res.status(404).json({ error: "No questions found" });
+
     const randomQuestion = questions[Math.floor(Math.random() * questions.length)];
     return res.json({ question: randomQuestion });
   } catch (err) {
@@ -57,7 +65,7 @@ app.get("/api/question/:type", (req, res) => {
   }
 });
 
-// ✅ Submit + Evaluate
+// ✅ Submit & evaluate
 app.post("/api/submit/:category", async (req, res) => {
   const { category } = req.params;
   const { answer } = req.body;
@@ -67,16 +75,15 @@ app.post("/api/submit/:category", async (req, res) => {
   }
 
   try {
-    // ✅ Simple plagiarism detection
+    // ✅ Simple plagiarism detection (no external lib)
     const fileName = questionFiles[category.toLowerCase()];
     const filePath = fileName ? path.join(process.cwd(), "questions", fileName) : null;
-
     let plagiarismScore = 0;
+
     if (filePath && fs.existsSync(filePath)) {
       const content = fs.readFileSync(filePath, "utf-8");
       const questions = parseQuestions(content);
-      const match = stringSimilarity.findBestMatch(answer, questions);
-      plagiarismScore = match.bestMatch.rating; // 0–1
+      plagiarismScore = Math.max(...questions.map(q => textSimilarity(answer, q)));
     }
 
     // ✅ AI evaluation
