@@ -1,1 +1,14 @@
+===QUESTION===
+You are the customer relations manager in a mid-sized bank. Recently, customer complaints about delays in loan processing have sharply increased. Your team insists they are following standard procedures, yet customer satisfaction scores are dropping. Analyse the situation and suggest ways to improve service quality without compromising compliance.
 
+===QUESTION===
+You are the president of a college debate club. While you have many talented members, participation in weekly meetings has significantly declined. Feedback suggests the sessions feel repetitive and lack engagement. Analyse the situation and suggest how to revive interest and boost active participation.
+
+===QUESTION===
+You are overseeing a government project to build a new community centre, but residents are strongly opposing it. Analyse the situation and propose steps to gain community support while advancing the project.
+
+===QUESTION===
+You are the head of corporate communications at a large company. An internal survey reveals that employees feel disconnected from leadership and unaware of company goals. Analyse the situation and recommend steps to improve internal communication.
+
+===QUESTION===
+You are the sales manager for a home appliance brand. Competitors are gaining market share with aggressive online discounts, while your sales remain flat. Analyse the situation and recommend strategies to stay competitive.
