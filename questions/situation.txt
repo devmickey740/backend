@@ -12,3 +12,36 @@ You are the head of corporate communications at a large company. An internal sur
 
 ===QUESTION===
 You are the sales manager for a home appliance brand. Competitors are gaining market share with aggressive online discounts, while your sales remain flat. Analyse the situation and recommend strategies to stay competitive.
+
+===QUESTION===
+After a major project your team worked on for months was abruptly cancelled by senior management, morale has plummeted. Team members are disengaged and productivity has dropped. As the team leader, what steps would you take to remotivate your team and restore their confidence?
+
+===QUESTION===
+You are the head of customer support for an e-commerce company. A software bug caused thousands of customers to be overcharged. The call center is overwhelmed, and social media is filled with angry complaints. Outline your immediate plan to manage this crisis.
+
+===QUESTION===
+As a manager, you are onboarding a new employee who will be working fully remotely, while the rest of the team is hybrid. How would you structure their first month to ensure they feel integrated, understand the company culture, and become a productive member of the team?
+
+===QUESTION===
+You are the head of a non-profit's community outreach department. You've just been informed that your department's budget for the next year will be cut by 30%. How would you analyze the situation and present a revised operational plan to your director?
+
+===QUESTION===
+Your boss assigns your team a high-priority project with a deadline that you know is technically unachievable without significant overtime and a high risk of errors. How would you approach your boss to negotiate a more realistic timeline while still demonstrating a can-do attitude?
+
+===QUESTION===
+You are the marketing manager. The product development team frequently launches new features without providing your team enough lead time to create marketing materials, leading to rushed, ineffective campaigns. How would you address this recurring communication breakdown?
+
+===QUESTION===
+You have just taken over as an account manager for a client whose relationship with your company has deteriorated due to a series of missed deadlines and poor communication from the previous manager. How would you approach your first 90 days to rebuild trust and retain the client?
+
+===QUESTION===
+As a department head, you must implement a new company-wide policy to reduce remote work from three days a week to one. Your team, which has high-performers, is extremely resistant to this change. How would you manage the situation to maintain morale while ensuring compliance?
+
+===QUESTION===
+Your close friend is excited about investing their life savings into a new business venture. Based on your professional expertise, you can clearly see critical flaws in their business plan that will likely lead to failure. How would you approach this delicate situation to protect your friend without destroying your relationship?
+
+===QUESTION===
+As the secretary of a residential housing society, a heated dispute has erupted between two families over a shared garden space. One family wants to plant large shrubs for privacy, while the other wants to keep it as an open play area for children. The conflict is escalating. How would you mediate to find a fair resolution?
+
+===QUESTION===
+You are managing a critical project that is now projected to be 50% over budget and three months behind schedule due to unforeseen technical challenges. You need to present this update to the project's steering committee. How would you structure your presentation to convey the gravity of the situation while retaining their confidence in your leadership?
