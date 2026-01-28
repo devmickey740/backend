@@ -27,3 +27,36 @@ Write an email to your bank customer requesting them to update KYC documents to 
 
 ===QUESTION===
 Write an email to your cousin discussing plans for a surprise party for a mutual friend.
+
+===QUESTION===
+As the secretary of your residential society, write an email to all residents informing them about a planned power outage for maintenance work in the society's electrical panels. Provide the date, time, and duration of the outage.
+
+===QUESTION===
+You have been offered a new job and need to resign from your current position. Write a formal resignation email to your reporting manager, stating your last working day and thanking the organization for the opportunities provided.
+
+===QUESTION===
+You are a student who missed a final semester examination due to a medical emergency. Write an email to the university's Examination Controller, explaining your situation and inquiring about the procedure for appearing in a supplementary exam. Attach a medical certificate.
+
+===QUESTION===
+You are the manager of a bookstore. Write an email to a frequent customer, informing them about a special weekend discount on a new collection of books by their favorite author.
+
+===QUESTION===
+You manage a small business and had ordered office stationery, but the delivery is delayed by over a week. Write an email to the supplier inquiring about the status of your order and highlighting the urgency.
+
+===QUESTION===
+As a concerned citizen, write an email to the editor of a local newspaper about the deteriorating condition of a public park in your area, urging the authorities through the newspaper to take restorative action.
+
+===QUESTION===
+You recently attended a job interview. Write a follow-up email to the HR Manager, thanking them for the opportunity and reiterating your interest in the position.
+
+===QUESTION===
+You are an employee who has submitted a medical reimbursement claim a month ago but has not received any update. Write an email to the HR department inquiring about the status of your claim.
+
+===QUESTION===
+As a student preparing for competitive exams, you find that your local library lacks the latest edition of some important books. Write an email to the Chief Librarian requesting the procurement of these books.
+
+===QUESTION===
+You are a relationship manager at a bank. Write a welcome email to a new high-net-worth client, introducing yourself as their dedicated point of contact and briefly mentioning the premium services they can avail.
+
+===QUESTION===
+You recently stayed at a hotel where you experienced poor room service and cleanliness issues. Write an email to the hotel manager complaining about the unsatisfactory experience and requesting appropriate compensation.
