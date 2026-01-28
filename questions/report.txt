@@ -27,3 +27,18 @@ You are Meera Joshi, Tourism Correspondent for Travel India. Draft a report on t
 
 ===QUESTION===
 You are Priya Verma, Volunteer Coordinator for Clean Shores Initiative. Draft a report on a recent beach cleaning drive, mentioning volunteer numbers, waste collected, and awareness activities conducted.
+
+===QUESTION===
+You are the Head of Cybersecurity for a fintech company. A targeted phishing attack is detected. Write a preliminary incident report for the CEO, detailing the nature of the attack, the immediate containment strategy, and the potential exposure.
+
+===QUESTION===
+As the Project Supervisor for a metro rail construction site, a crane malfunctions and drops its load in a non-operational area, causing no injuries but blocking an access route. Write a safety report for the Project Director.
+
+===QUESTION===
+You are the IT Service Desk Manager. A recent mandatory OS patch has caused widespread system crashes across the company. Write an incident report for the Chief Technology Officer (CTO) detailing the event, the team's response, and the recovery plan.
+
+===QUESTION===
+As the Head of Communications for a retail brand, your company faces intense social media backlash over a new marketing campaign perceived as insensitive. Write a situation analysis for the board of directors.
+
+===QUESTION===
+You are the Hospital Administrator. A chemical leak at a nearby factory has resulted in a sudden influx of patients with respiratory issues, overwhelming your Emergency Department. Report on the situation to the District Health Officer.
